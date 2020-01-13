@@ -14,7 +14,6 @@ def learn_db():
     before_learn_tuple_n = []
     before_answer_tuple_n = []
     before_learn_tuple_zs = []
-    combine_flag = 0  # 0 = false, 1 = true
     predict_result = []  # 予測結果を格納
 
     # release1とrelease53
@@ -74,6 +73,9 @@ def learn_db():
         print('recall:', SKMET.recall_score(test_answer_tuple_n, predict_result))
         print('f-measure:', SKMET.f1_score(test_answer_tuple_n, predict_result), '\n')
 
+        before_learn_tuple_n = learn_tuple_n
+        before_answer_tuple_n = answer_tuple_n
+
     except sqlite3.Error as e:
         print('sqlite3.Error occurred:', e.args[0])
 
@@ -97,25 +99,10 @@ def learn_db():
             # 各パラメータを調整する処理
             # 訓練データと検証データ
             learn_tuple_n = learn_tuple_processing(learn_tuple)
-            if len(learn_tuple_n) <= 2:  # 前のリリース区間のデータをトレーニングデータにする
-                learn_tuple_n += before_learn_tuple_n
-                combine_flag = 1
+            learn_tuple_n += before_learn_tuple_n
             answer_tuple_n = answer_tuple_processing(answer_tuple)
-            if len(answer_tuple_n) <= 2:  # 前のリリース区間のデータをトレーニングデータにする
-                answer_tuple_n += before_answer_tuple_n
-                combine_flag = 1
-            # もし、answer_tuple_nの中身が全て0か1のとき、前のコミットを足す
-            if (sum(answer_tuple_n) == len(answer_tuple_n) or sum(answer_tuple_n) == 0) and combine_flag == 0:
-                learn_tuple_n = learn_tuple_n + before_learn_tuple_n
-                answer_tuple_n = answer_tuple_n + before_answer_tuple_n
-                combine_flag = 1
+            answer_tuple_n += before_answer_tuple_n
             learn_tuple_zs = learn_tuple_zscore(learn_tuple_n)
-
-            # もし、正解データの最初から80%までの値全てがTrueかFalseだったら、一つ前のコミットのデータを全て足す
-            if (sum(answer_tuple_n[:int(0.8 * len(learn_tuple_zs))]) == len(answer_tuple_n[:int(0.8 * len(learn_tuple_zs))]) or sum(answer_tuple_n[:int(0.8 * len(learn_tuple_zs))]) == 0) and combine_flag == 0:
-                learn_tuple_zs = learn_tuple_zs + before_learn_tuple_zs
-                answer_tuple_n = answer_tuple_n + before_answer_tuple_n
-                combine_flag == 1
 
             train_learn_tuple = learn_tuple_zs[:int(0.8 * len(learn_tuple_zs))]  # 訓練データの説明変数
             train_answer_tuple = answer_tuple_n[:int(0.8 * len(learn_tuple_zs))]  # 訓練データの正解データ
@@ -159,9 +146,6 @@ def learn_db():
             if before_learn_tuple_n != learn_tuple_n:
                 before_learn_tuple_n = learn_tuple_n
                 before_answer_tuple_n = answer_tuple_n
-                before_learn_tuple_zs = learn_tuple_zs
-
-            combine_flag = 0
 
     except sqlite3.Error as e:
         print('sqlite3.Error occurred:', e.args[0])
