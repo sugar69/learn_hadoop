@@ -2,10 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5dceda7d-f364-474d-87ce-1f6b01689ed2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/improved_plot_hadoop.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/learn_hadoop_check_fixes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_hadoop_accumulate.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/print_fixes.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pipfile" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pipfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot_hadoop.py" beforeDir="false" afterPath="$PROJECT_DIR$/plot_hadoop.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/learn_hadoop.py" beforeDir="false" afterPath="$PROJECT_DIR$/learn_hadoop.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/learn_hadoop_accumulate_release.py" beforeDir="false" afterPath="$PROJECT_DIR$/learn_hadoop_accumulate_release.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_tuple.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_tuple.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -57,7 +61,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.plot_hadoop">
+  <component name="RunManager" selected="Python.learn_hadoop_check_fixes">
     <configuration name="learn_hadoop" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="learn_hadoop" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -102,7 +106,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="plot_hadoop" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="learn_hadoop_check_fixes" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="learn_hadoop" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -115,7 +119,29 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/plot_hadoop.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/learn_hadoop_check_fixes.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="print_fixes" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="learn_hadoop" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/print_fixes.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -131,9 +157,9 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="/usr/local/bin/python3.7" />
+      <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
@@ -148,10 +174,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.plot_hadoop" />
-        <item itemvalue="Python.learn_hadoop" />
-        <item itemvalue="Python.learn_hadoop_accumulate_release" />
+        <item itemvalue="Python.learn_hadoop_check_fixes" />
+        <item itemvalue="Python.print_fixes" />
         <item itemvalue="Python.test_tuple" />
+        <item itemvalue="Python.learn_hadoop_accumulate_release" />
+        <item itemvalue="Python.learn_hadoop" />
       </list>
     </recent_temporary>
   </component>
@@ -168,7 +195,9 @@
       <workItem from="1577431383626" duration="8670000" />
       <workItem from="1578217207608" duration="25812000" />
       <workItem from="1578497069700" duration="7206000" />
-      <workItem from="1578638264223" duration="27984000" />
+      <workItem from="1578638264223" duration="56380000" />
+      <workItem from="1579333496648" duration="18276000" />
+      <workItem from="1579594994273" duration="18005000" />
     </task>
     <servers />
   </component>
@@ -192,11 +221,6 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/learn_hadoop.py</url>
-          <line>158</line>
-          <option name="timeStamp" value="50" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/plot_hadoop.py</url>
           <line>25</line>
           <option name="timeStamp" value="66" />
@@ -206,13 +230,42 @@
           <line>55</line>
           <option name="timeStamp" value="68" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test_tuple.py</url>
+          <line>117</line>
+          <option name="timeStamp" value="70" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test_tuple.py</url>
+          <line>32</line>
+          <option name="timeStamp" value="71" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test_tuple.py</url>
+          <line>69</line>
+          <option name="timeStamp" value="73" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/learn_hadoop_check_fixes.py</url>
+          <line>260</line>
+          <option name="timeStamp" value="86" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/learn_hadoop_check_fixes.py</url>
+          <line>324</line>
+          <option name="timeStamp" value="91" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/learn_hadoop$learn_hadoop.coverage" NAME="learn_hadoop Coverage Results" MODIFIED="1578910506107" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/learn_hadoop$plot_hadoop.coverage" NAME="plot_hadoop Coverage Results" MODIFIED="1578912294687" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/learn_hadoop$test_tuple.coverage" NAME="test_tuple Coverage Results" MODIFIED="1578469503405" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/learn_hadoop$learn_hadoop_accumulate_release.coverage" NAME="learn_hadoop_accumulate_release Coverage Results" MODIFIED="1578818908951" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/learn_hadoop$improved_plot_hadoop.coverage" NAME="improved_plot_hadoop Coverage Results" MODIFIED="1578992480783" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/learn_hadoop$print_fixes.coverage" NAME="print_fixes Coverage Results" MODIFIED="1579590301919" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/learn_hadoop$learn_hadoop.coverage" NAME="learn_hadoop Coverage Results" MODIFIED="1579072361883" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/learn_hadoop$plot_hadoop.coverage" NAME="plot_hadoop Coverage Results" MODIFIED="1578913451985" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/learn_hadoop$plot_hadoop_accumulate.coverage" NAME="plot_hadoop_accumulate Coverage Results" MODIFIED="1579067006562" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/learn_hadoop$test_tuple.coverage" NAME="test_tuple Coverage Results" MODIFIED="1579347668873" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/learn_hadoop$learn_hadoop_accumulate_release.coverage" NAME="learn_hadoop_accumulate_release Coverage Results" MODIFIED="1579072494510" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/learn_hadoop$learn_hadoop_check_fixes.coverage" NAME="learn_hadoop_check_fixes Coverage Results" MODIFIED="1579677067677" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
