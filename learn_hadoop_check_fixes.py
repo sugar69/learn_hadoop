@@ -109,17 +109,13 @@ def learn_db():
         else:
         # end_fixes
 
-            print(answer_tuple_n)
-        # もし、正解データの最初から80%までの値全てがTrueかFalseだったら、90%にしました(要変更)
+#            print(answer_tuple_n)
+
+        # もし、正解データの最初から80%までの値全てがTrueかFalseだったら、失敗とする
             if (sum(answer_tuple_n[:int(0.8 * len(learn_tuple_zs))]) == len(
                     answer_tuple_n[:int(0.8 * len(learn_tuple_zs))]) or sum(
-                    answer_tuple_n[:int(0.8 * len(learn_tuple_zs))]) == 0) and combine_flag == 0:
-                train_learn_tuple = learn_tuple_zs[:int(0.9 * len(learn_tuple_zs))]  # 訓練データの説明変数
-                train_answer_tuple = answer_tuple_n[:int(0.9 * len(learn_tuple_zs))]  # 訓練データの正解データ
-                valid_learn_tuple = learn_tuple_zs[
-                                    int(0.9 * len(learn_tuple_zs)):int(1.0 * len(learn_tuple_zs))]  # 検証データの説明変数
-                valid_answer_tuple = answer_tuple_n[
-                                    int(0.9 * len(learn_tuple_zs)):int(1.0 * len(learn_tuple_zs))]  # 検証データの正解データ
+                    answer_tuple_n[:int(0.8 * len(learn_tuple_zs))]) == 0):
+                invalid_counter += 1
             else:
                 train_learn_tuple = learn_tuple_zs[:int(0.8 * len(learn_tuple_zs))]  # 訓練データの説明変数
                 train_answer_tuple = answer_tuple_n[:int(0.8 * len(learn_tuple_zs))]  # 訓練データの正解データ
@@ -127,53 +123,53 @@ def learn_db():
                 valid_answer_tuple = answer_tuple_n[
                                     int(0.8 * len(learn_tuple_zs)):int(1.0 * len(learn_tuple_zs))]  # 検証データの正解データ
 
-            # テストデータ
-            test_learn_tuple_n = learn_tuple_processing(test_learn_tuple)
-            test_answer_tuple_n = answer_tuple_processing(test_answer_tuple)
-            test_learn_tuple_zs = learn_tuple_zscore(test_learn_tuple_n)
+                # テストデータ
+                test_learn_tuple_n = learn_tuple_processing(test_learn_tuple)
+                test_answer_tuple_n = answer_tuple_processing(test_answer_tuple)
+                test_learn_tuple_zs = learn_tuple_zscore(test_learn_tuple_n)
 
-#           print('training', 1, ': testing', 53)
-            challenge_num += 1
+#               print('training', 1, ': testing', 53)
+                challenge_num += 1
 
-            for candidate in candidates_C:
-                clf = LR(random_state=0, C=candidate).fit(train_learn_tuple, train_answer_tuple)
-                score = clf.score(valid_learn_tuple, valid_answer_tuple)
-#                print("candidate: {0}, score: {1}".format(candidate, score))
-                if score > best_C_score:
-                    best_C = candidate
-                    best_C_score = score
+                for candidate in candidates_C:
+                    clf = LR(random_state=0, C=candidate).fit(train_learn_tuple, train_answer_tuple)
+                    score = clf.score(valid_learn_tuple, valid_answer_tuple)
+#                   print("candidate: {0}, score: {1}".format(candidate, score))
+                    if score > best_C_score:
+                        best_C = candidate
+                        best_C_score = score
 
-            clf = LR(random_state=0, C=best_C).fit(train_learn_tuple, train_answer_tuple)
-            score = clf.score(test_learn_tuple_zs, test_answer_tuple_n)
-#           print("best score: {0}".format(score))
-            predict_result = clf.predict(test_learn_tuple_zs)
-#               print(predict_result)
-            # テストデータの値が1種類のみだとroc_aucスコアが出せないから0.5にする処理
-            if sum(test_answer_tuple_n) == len(test_answer_tuple_n) or sum(test_answer_tuple_n) == 0:
-                roc_auc = 0.5
-#               print('roc_auc_score:', roc_auc)
-            else:
-                roc_auc = SKMET.roc_auc_score(test_answer_tuple_n, predict_result)
-#               print('roc_auc_score:', roc_auc)
-            precision = SKMET.precision_score(test_answer_tuple_n, predict_result)
-            recall = SKMET.recall_score(test_answer_tuple_n, predict_result)
-            f_measure = SKMET.f1_score(test_answer_tuple_n, predict_result)
-#           print('precision:', precision)
-#           print('recall:', recall)
-#           print('f-measure:', f_measure, '\n')
+                clf = LR(random_state=0, C=best_C).fit(train_learn_tuple, train_answer_tuple)
+                score = clf.score(test_learn_tuple_zs, test_answer_tuple_n)
+#               print("best score: {0}".format(score))
+                predict_result = clf.predict(test_learn_tuple_zs)
+#                   print(predict_result)
+                # テストデータの値が1種類のみだとroc_aucスコアが出せないから0.5にする処理
+                if sum(test_answer_tuple_n) == len(test_answer_tuple_n) or sum(test_answer_tuple_n) == 0:
+                    roc_auc = 0.5
+#                   print('roc_auc_score:', roc_auc)
+                else:
+                    roc_auc = SKMET.roc_auc_score(test_answer_tuple_n, predict_result)
+#                   print('roc_auc_score:', roc_auc)
+                precision = SKMET.precision_score(test_answer_tuple_n, predict_result)
+                recall = SKMET.recall_score(test_answer_tuple_n, predict_result)
+                f_measure = SKMET.f1_score(test_answer_tuple_n, predict_result)
+#               print('precision:', precision)
+#               print('recall:', recall)
+#               print('f-measure:', f_measure, '\n')
 
-            if precision != 0 and recall != 0 and f_measure != 0:
-                success_num += 1
-                success_roc_auc.append(roc_auc)
-                success_precisions.append(precision)
-                success_recalls.append(recall)
-                success_f_measures.append(f_measure)
+                if precision != 0 and recall != 0 and f_measure != 0:
+                    success_num += 1
+                    success_roc_auc.append(roc_auc)
+                    success_precisions.append(precision)
+                    success_recalls.append(recall)
+                    success_f_measures.append(f_measure)
 
-        before_learn_tuple_n = learn_tuple_n
-        before_answer_tuple_n = answer_tuple_n
-        before_learn_tuple_zs = learn_tuple_zs
-        before_hash_tuple = hash_tuple
-        before_fixes_tuple = fixes_tuple_legal
+            before_learn_tuple_n = learn_tuple_n
+            before_answer_tuple_n = answer_tuple_n
+            before_learn_tuple_zs = learn_tuple_zs
+            before_hash_tuple = hash_tuple
+            before_fixes_tuple = fixes_tuple_legal
 
     except sqlite3.Error as e:
         print('sqlite3.Error occurred:', e.args[0])
@@ -258,7 +254,7 @@ def learn_db():
             for loop_bugs_check in range(0, len(answer_tuple_n)):
                 fix_flag = 0
                 if answer_tuple_n[loop_bugs_check] == 1:  # バグ入りコミットの場合
-                    print(len(fixes_tuple_legal[loop_bugs_check]))  # debug
+#                    print(len(fixes_tuple_legal[loop_bugs_check]))  # debug
                     for loop_fixes in range(0, len(fixes_tuple_legal[loop_bugs_check])):
                         for loop_hash in range(0, len(answer_tuple_n)):
                             if hash_tuple[loop_hash][0] == fixes_tuple_legal[loop_bugs_check][loop_fixes]:
@@ -266,16 +262,16 @@ def learn_db():
                     if fix_flag == 0:
                         delete_target.append(loop_bugs_check)
             # 一致しなかったコミットのデータを1つずつ削除する
-            print('len_before:', len(learn_tuple_zs))
+#            print('len_before:', len(learn_tuple_zs))
             for delete_num in range(0, len(delete_target)):
                 del learn_tuple_zs[delete_target[delete_num]]
                 del learn_tuple_n[delete_target[delete_num]]
                 del answer_tuple_n[delete_target[delete_num]]
-                del hash_tuple[delete_num]  # いる？
-                del fixes_tuple_legal[delete_num]  # いる？
+#                del hash_tuple[delete_num]  # いる？
+#                del fixes_tuple_legal[delete_num]  # いる？
                 for del_loop_num in range(delete_num + 1, len(delete_target)):
                     delete_target[del_loop_num] -= 1
-            print('len_after:', len(learn_tuple_zs))
+#            print('len_after:', len(learn_tuple_zs))
 
             if (sum(answer_tuple_n) == len(answer_tuple_n) or sum(answer_tuple_n) == 0):
                 invalid_counter += 1
@@ -289,11 +285,18 @@ def learn_db():
 
             # end_fixes
 
-            # もし、正解データの最初から80%までの値全てがTrueかFalseだったら、一つ前のコミットのデータを全て足す
+            # もし、正解データの最初から80%までの値全てがTrueかFalseで、尚且つ1つ前のコミットが足されていなかったら　　、一つ前のコミットのデータを全て足す
             if (sum(answer_tuple_n[:int(0.8 * len(learn_tuple_zs))]) == len(answer_tuple_n[:int(0.8 * len(learn_tuple_zs))]) or sum(answer_tuple_n[:int(0.8 * len(learn_tuple_zs))]) == 0) and combine_flag == 0:
                 learn_tuple_zs = learn_tuple_zs + before_learn_tuple_zs
                 answer_tuple_n = answer_tuple_n + before_answer_tuple_n
                 combine_flag == 1
+
+
+            if (sum(answer_tuple_n[:int(0.8 * len(learn_tuple_zs))]) == len(
+                    answer_tuple_n[:int(0.8 * len(learn_tuple_zs))]) or sum(
+                    answer_tuple_n[:int(0.8 * len(learn_tuple_zs))]) == 0):
+                invalid_counter += 1
+                continue
 
             train_learn_tuple = learn_tuple_zs[:int(0.8 * len(learn_tuple_zs))]  # 訓練データの説明変数
             train_answer_tuple = answer_tuple_n[:int(0.8 * len(learn_tuple_zs))]  # 訓練データの正解データ
@@ -312,16 +315,17 @@ def learn_db():
             test_answer_tuple_n = answer_tuple_processing(test_answer_tuple)
             test_learn_tuple_zs = learn_tuple_zscore(test_learn_tuple_n)
 
-#            print('training', loop_num, ': testing', loop_num+1)
+            print('training', loop_num, ': testing', loop_num+1)
             challenge_num += 1
+            '''
             print(answer_tuple_n)
             print(train_answer_tuple)
             print(valid_answer_tuple)
             print(len(learn_tuple_zs))
             print('loop', loop_num)
-
+            '''
             for candidate in candidates_C:
-                print('learn:', len(train_learn_tuple), 'answer:', len(train_answer_tuple))
+#                print('learn:', len(train_learn_tuple), 'answer:', len(train_answer_tuple))
                 clf = LR(random_state=0, C=candidate).fit(train_learn_tuple, train_answer_tuple)
                 score = clf.score(valid_learn_tuple, valid_answer_tuple)
 #                print("candidate: {0}, score: {1}".format(candidate, score))
@@ -369,6 +373,13 @@ def learn_db():
         print('sqlite3.Error occurred:', e.args[0])
 
     print('invalid data num:', invalid_counter)
+
+    print('sucnum:', success_num)
+    print('chanum:', challenge_num)
+    print('sucroc:', success_roc_auc)
+    print('sucpre', success_precisions)
+    print('sucrecall', success_recalls)
+    print('sucfme', success_f_measures)
 
     data_processing(success_num, challenge_num, success_roc_auc, success_precisions, success_recalls, success_f_measures)
 

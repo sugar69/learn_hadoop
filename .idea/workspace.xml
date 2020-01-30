@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5dceda7d-f364-474d-87ce-1f6b01689ed2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/improved_plot_hadoop.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/learn_hadoop_check_fixes.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plot_hadoop_accumulate.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/print_fixes.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/learn_hadoop.py" beforeDir="false" afterPath="$PROJECT_DIR$/learn_hadoop.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/learn_hadoop_accumulate_release.py" beforeDir="false" afterPath="$PROJECT_DIR$/learn_hadoop_accumulate_release.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_tuple.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_tuple.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/learn_hadoop_check_fixes.py" beforeDir="false" afterPath="$PROJECT_DIR$/learn_hadoop_check_fixes.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -197,7 +191,7 @@
       <workItem from="1578497069700" duration="7206000" />
       <workItem from="1578638264223" duration="56380000" />
       <workItem from="1579333496648" duration="18276000" />
-      <workItem from="1579594994273" duration="18005000" />
+      <workItem from="1579594994273" duration="23482000" />
     </task>
     <servers />
   </component>
@@ -247,12 +241,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/learn_hadoop_check_fixes.py</url>
-          <line>260</line>
-          <option name="timeStamp" value="86" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/learn_hadoop_check_fixes.py</url>
-          <line>324</line>
+          <line>328</line>
           <option name="timeStamp" value="91" />
         </line-breakpoint>
       </breakpoints>
@@ -266,6 +255,6 @@
     <SUITE FILE_PATH="coverage/learn_hadoop$plot_hadoop_accumulate.coverage" NAME="plot_hadoop_accumulate Coverage Results" MODIFIED="1579067006562" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/learn_hadoop$test_tuple.coverage" NAME="test_tuple Coverage Results" MODIFIED="1579347668873" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/learn_hadoop$learn_hadoop_accumulate_release.coverage" NAME="learn_hadoop_accumulate_release Coverage Results" MODIFIED="1579072494510" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/learn_hadoop$learn_hadoop_check_fixes.coverage" NAME="learn_hadoop_check_fixes Coverage Results" MODIFIED="1579677067677" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/learn_hadoop$learn_hadoop_check_fixes.coverage" NAME="learn_hadoop_check_fixes Coverage Results" MODIFIED="1579686502366" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
